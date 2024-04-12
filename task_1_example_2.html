@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name= "viewport" content="width=decide-width, initial-scale=1">
+<style>
+h1 {
+    font-size: 35px;
+	text-align: left;
+}
+
+p {
+	text-align: left;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: left;
+}
+
+table.center{
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+}
+
+.container {
+  margin-top: 2%;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image {
+  display: block;
+  width: 11%;
+  height: auto;
+}
+
+.title {
+  margin-left: 20px;
+}
+
+</style>
+
+</head>
+<body style="background-color:rgb(247, 255, 179);">
+<div class="container">
+  <img src="https://cdn-icons-png.flaticon.com/512/354/354637.png" alt="Avatar" class="image">
+  <div class="title">
+    <h1>STUDENT INFORMATION</h1>
+    <p>Fill out the details below accurately for academic or additional uses.</p>
+  </div>
+</div>
+<td></td>
+    <table class="center" style="background-color:rgb(255, 255, 255);">
+    <tr>
+      <td><label for="fname">Name</label></td>
+      <td><input type="text" id="fname" name="fname"><br><br></td>
+      <td>Photo: <input type="file" id="imageUpload" accept="image/*"></td>
+    </tr>
+    <tr>
+      <td><label for="birth">Date of birth</label></td>
+        <td colspan="2"><input type="date" id="birth" name="birth"></td>
+    </tr>
+    <tr>
+      <td><label for="religion">Religion</label></td>
+      <td colspan="2"><select name="cars" id="cars">
+        <option value="muslim">Muslim</option>
+        <option value="buddha">Buddhist</option>
+        <option value="christian">Christian</option>
+        <option value="hindu">Hindu</option>
+        <option value="others">Others</option>
+        <br><br></td>
+      </select>
+    </tr>
+    <tr>
+        <td><label for="race">Race</label></td>
+        <td colspan="2"><select name="cars" id="cars">
+            <option value="malay">Malay</option>
+            <option value="chinese">Chinese</option>
+            <option value="indian">Indian</option>
+            <option value="other">Others</option>
+            <br><br></td>
+    </tr>
+    <tr>
+      <td rowspan="4">Address</td>
+      <td><label for="street">Street</label></td>
+      <td><input type="text" id="street" name="street"></td>
+    </tr>
+    <tr>
+      <td>Town</td>
+      <td><select name="cars" id="cars">
+        <option value="malay">Malay</option>
+        <option value="chinese">Chinese</option>
+        <option value="indian">Indian</option>
+        <option value="other">Others</option>
+        <br><br></td>
+    </tr>
+    <tr>
+      <td>District</td>
+      <td><select name="cars" id="cars">
+        <option value="malay">Malay</option>
+        <option value="chinese">Chinese</option>
+        <option value="indian">Indian</option>
+        <option value="other">Others</option>
+        <br><br></td>
+    </tr>
+    <tr>
+      <td>State</td>
+      <td><select name="cars" id="cars">
+        <option value="malay">Malay</option>
+        <option value="chinese">Chinese</option>
+        <option value="indian">Indian</option>
+        <option value="other">Others</option>
+        <br><br></td>
+    </tr>
+    <tr>
+      <td rowspan="3">Contact</td>
+      <td><label for="mphone">Mobile Phone</label></td>
+      <td><input type="text" id="mphone" name="mphone"><br><br></td>
+    </tr>
+    <tr>
+      <td><label for="smedia">Social Media</label></td>
+      <td><input type="text" id="smedia" name="smedia"><br><br></td>
+    </tr>
+    <tr>
+      <td><label for="Website">Website</label></td>
+      <td><input type="text" id="Website" name="Website"><br><br></td>
+    </tr>
+    <tr>
+      <td><label for="course">Course and Institution</label></td>
+      <td colspan="2"><input type="text" id="couse" name="course"></td>
+    </tr>
+    <tr>
+      <td><label for="skills">Programming skills</label></td>
+      <td colspan="2"><input type="text" id="skills" name="skills"></td>
+    </tr>
+    <tr>
+      <td><label for="Interest">Personal Interest</label></td>
+      <td colspan="2"><input type="text" id="Interest" name="Interest"></td>
+    </tr>
+    <tr>
+      <td><label for="Plan">Plan in 2024</label></td>
+      <td colspan="2"><input type="text" id="Plan" name="Plan"></td>
+    </tr>
+  </table>
+  <div style="text-align: center;    margin-bottom: 3%;">
+    <input type="submit" value="Submit">
+  </div>
+</body>
+</html>
