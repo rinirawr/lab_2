@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        textarea {
+            opacity: 0.5;
+        }
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+        .popup.show {
+            display: block;
+        }
+    </style>
+    <script>
+        function validateEmail() {
+            var emailInput = document.getElementById("email");
+            var email = emailInput.value;
+            var emailValidity = emailInput.checkValidity();
+            var errorMessage = document.getElementById("email-error");
+
+            if (email !== "" && !emailValidity) {
+                errorMessage.style.display = "block";
+            } else {
+                errorMessage.style.display = "none";
+            }
+        }
+
+        function validateForm() {
+            var fname = document.getElementById("fname").value;
+            var email = document.getElementById("email").value;
+            var age = document.getElementById("age").value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var country = document.getElementById("country").value;
+            var interests = document.querySelectorAll('input[name="interests"]:checked');
+            var experience = document.querySelector('input[name="experience"]:checked');
+            var comment = document.getElementById("comment").value;
+
+            if (fname === "" || age === "" || gender === null || country === "" || interests.length === 0 || experience === null || comment === "") {
+                alert("Please fill in all the required fields.");
+                return false;
+            } else {
+                var emailInput = document.getElementById("email");
+                if (!emailInput.checkValidity()) {
+                    alert("Please enter a valid email address.");
+                    return false;
+                }
+
+                var popup = document.getElementById("popup");
+                popup.classList.add("show");
+                return false; // Prevent form submission for this example
+            }
+        }
+    </script>
+</head>
+
+<body>
+<h1>Conference Registration Form</h1>
+
+<form action="registration.php" onsubmit="return validateForm()">
+    <label for="fname">Full name:</label>
+    <input type="text" id="fname" name="fname" required placeholder="Enter your full name"><br><br>
+    <label for="email">Email address:</label>
+    <input type="email" id="email" name="email" required oninput="validateEmail()" placeholder="Enter your email address"><br>    
+    <span id="email-error" style="display: none; color: red;">Please enter a valid email address.</span><br><br>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" min="18" max="99" required placeholder="18"><br><br>
+
+    <p>Gender:</p>
+    <input type="radio" id="male" name="gender" value="male" required>
+    <label for="male">Male</label><br>
+    <input type="radio" id="female" name="gender" value="female" required>
+    <label for="female">Female</label><br><br> 
+
+    <label for="country">Country of Residence:</label>
+    <select name="country" id="country" required>
+      <option value="">Select a country</option>
+      <option value="malaysia">Malaysia</option>
+      <option value="china">China</option>
+      <option value="india">India</option>
+      <option value="japan">Japan</option>
+    </select>
+
+    <p>Areas of Interest:</p>
+    <input type="checkbox" id="interest1" name="interests" value="software">
+    <label for="interest1"> Software Development</label><br>
+    <input type="checkbox" id="interest2" name="interests" value="science">
+    <label for="interest2"> Data Science</label><br>
+    <input type="checkbox" id="interest3" name="interests" value="security">
+    <label for="interest3"> Cybersecurity</label><br>
+    <input type="checkbox" id="interest4" name="interests" value="ai">
+    <label for="interest4"> Artificial Intelligence</label><br>
+
+    <p>Experience Level:</p>
+    <input type="radio" id="beginner" name="experience" value="beginner" required>
+    <label for="beginner">Beginner</label><br>
+    <input type="radio" id="Intermediate" name="experience" value="Intermediate" required>
+    <label for="Intermediate">Intermediate</label><br>
+    <input type="radio" id="Advanced" name="experience" value="Advanced" required>
+    <label for="Advanced">Advanced</label><br><br> 
+
+    <p>Comments or Questions:</p>
+    <textarea rows="4" cols="50" name="comment" id="comment" form="usrform" required>Any comments or questions?</textarea>
+    
+    <br><br>
+    <div style="text-align: left;    margin-bottom: 3%;">
+    <input type="submit" value="Register">
+    <input type="reset" value="Reset">
+    </div>
+</form>
+
+<div id="popup" class="popup">
+    <h2 style="color: #ff6600;">You're registered!</h2>
+    <p>Thank you for registering for the conference.</p>
+    <button onclick="document.getElementById('popup').classList.remove('show')">Close</button>
+</div>
+
+</body>
+</html>
